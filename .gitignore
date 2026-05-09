@@ -1,0 +1,27 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# uv self generated files
+uv.lock
+uv.toml
+
+# vscode settings
+.vscode/
+
+# output files
+out/
+
+# swanlab generated files
+swanlog/
+
+# cc
+CLAUDE.md
+.claude/
