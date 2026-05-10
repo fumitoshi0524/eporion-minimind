@@ -10,7 +10,7 @@ Eiporion-MiniMind 是一个全 int8 量化的 LLaMA 风格 decoder-only Transfor
 
 | 属性 | 值 |
 |----------|-------|
-| 参数量 | ~25M |
+| 参数量 | ~64M |
 | 隐藏层维度 | 768 |
 | 层数 | 8 |
 | 注意力头数 | 8（4 个 KV 头，GQA） |

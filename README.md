@@ -10,7 +10,7 @@ Training uses **Differentiable Quantization Training (DQT)** — int8 weights ar
 
 | Property | Value |
 |----------|-------|
-| Parameters | ~25M |
+| Parameters | ~64M |
 | Hidden Size | 768 |
 | Layers | 8 |
 | Attention Heads | 8 (4 KV heads, GQA) |
