@@ -22,10 +22,12 @@ from model.model_eiporion import EiporionConfig, EiporionForCausalLM
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Export Eiporion checkpoint to HF format")
-    parser.add_argument("--weight", default="full_sft", help="Checkpoint weight name")
-    parser.add_argument("--hidden-size", type=int, default=1536)
-    parser.add_argument("--num-hidden-layers", type=int, default=20)
+    parser = argparse.ArgumentParser(
+        description="Export Eiporion checkpoint to HF format"
+    )
+    parser.add_argument("--weight", default="pretrain", help="Checkpoint weight name")
+    parser.add_argument("--hidden-size", type=int, default=768)
+    parser.add_argument("--num-hidden-layers", type=int, default=8)
     parser.add_argument("--save-dir", default="out", help="Directory with .pth files")
     args = parser.parse_args()
 
@@ -53,8 +55,13 @@ def main():
     model.save_pretrained(save_dir)
 
     # Copy modeling code so trust_remote_code=True can import it
-    model_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model")
-    shutil.copy(os.path.join(model_dir, "model_eiporion.py"), os.path.join(save_dir, "modeling_eiporion.py"))
+    model_dir = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model"
+    )
+    shutil.copy(
+        os.path.join(model_dir, "model_eiporion.py"),
+        os.path.join(save_dir, "modeling_eiporion.py"),
+    )
     for f in ["tokenizer.json", "tokenizer_config.json"]:
         shutil.copy(os.path.join(model_dir, f), os.path.join(save_dir, f))
     print("Done.")
